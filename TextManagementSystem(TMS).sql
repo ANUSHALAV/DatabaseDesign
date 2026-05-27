@@ -3,15 +3,33 @@ CREATE DATABASE TMS;
 USE TMS;
 
 CREATE TABLE UserType(
-UserTypeID INT PRIMARY KEY AUTO_INCREMENT,
-UserType VARCHAR(255),
-Status INT
+UserTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+UserType VARCHAR(255) NOT NULL,
+Status INT NOT NULL DEFAULT 1
 );
 
-INSERT INTO UserType(UserType , Status) VALUES
-("SuperAdmin" , 1),
-("Admin",1),
-("Driver",1),
-("Passenger",1);
+INSERT INTO UserType(UserType) VALUES
+("SuperAdmin"),
+("Admin"),
+("Driver"),
+("Passenger");
 
 SELECT * FROM UserType;
+
+
+CREATE TABLE User(
+UserId INT PRIMARY KEY AUTO_INCREMENT,
+UserTypeId INT NOT NULL,
+FirstName VARCHAR(255) NOT NULL,
+LastName VARCHAR(255) NOT NULL,
+Address VARCHAR(255) DEFAULT Null,
+Gender VARCHAR(255) NOT NULL,
+Phone VARCHAR(255) NOT NULL,
+Email VARCHAR(255) DEFAULT Null,
+LoginId VARCHAR(255) NOT NULL,
+Password VARCHAR(255) NOT NULL,
+Status INt NOT NULL DEFAULT 1
+);
+
+SELECT * FROM User;
+
