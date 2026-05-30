@@ -2,6 +2,8 @@ CREATE DATABASE TMS;
 
 USE TMS;
 
+SET autocommit = 1;
+
 CREATE TABLE UserType(
 UserTypeId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 UserType VARCHAR(255) NOT NULL,
@@ -37,7 +39,7 @@ Password VARCHAR(255) NOT NULL,
 Status INt NOT NULL DEFAULT 1
 ) AUTO_INCREMENT = 101;
 
-
+-- insert query for super admin and admin 
 INSERT INTO User (UserTypeId,FirstName,LastName,Address,Gender,Phone,Email,LoginId,Password) VALUES
 (1,"Anushalav","Bhatt","Dhalwala","Male","8909506360","superAdmin@gmail.com","superAdmin","superAdmin"),
 (2,"Aman","Singh","Dhalwala","Male","9876543234","admin@gmail.com","admin","admin");
@@ -75,6 +77,16 @@ PenCardNumber VARCHAR(255)
  PinCode INT NOT NULL
  );
  
+ CREATE TABLE Passenger(
+ PassengerId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ FirstName VARCHAR(255),
+ LastName VARCHAR(255),
+ Phone VARCHAR(255),
+ Address VARCHAR(255),
+ RouteId INT NOT NULL,
+ DriverId Int NOT NULL,
+ Status INT DEFAULT 1
+ );
 
 
 
