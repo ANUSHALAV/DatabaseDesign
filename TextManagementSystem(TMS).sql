@@ -19,8 +19,72 @@ INSERT INTO UserType(UserType) VALUES
 SELECT * FROM UserType;
 
 
+CREATE TABLE IF NOT EXISTS Country (
+CountryId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CountryName VARCHAR(255) NOT NULL,
+Status INT DEFAULT 1
+);
+
+INSERT INTO Country (CountryName) VALUES
+('India'),
+('United States'),
+('Canada');
+
+SELECT * FROM Country;
+
+CREATE TABLE IF NOT EXISTS State (
+StateId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CountryId INT NOT NULL, FOREIGN KEY(CountryId) REFERENCES Country(CountryId),
+StateName VARCHAR(255),
+Status INT DEFAULT 1
+);
+
+INSERT INTO State (CountryId, StateName) VALUES
+(1, 'Uttarakhand'),
+(1, 'Uttar Pradesh'),
+(1, 'Delhi'),
+(2, 'California'),
+(2, 'Texas'),
+(3, 'Ontario');
+
+SELECT * FROM State;
+
+CREATE TABLE IF NOT EXISTS District(
+DistrictId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CountryId INT NOT NULL , FOREIGN KEY(CountryId) REFERENCES Country(CountryId),
+StateId INT NOT NULL, FOREIGN KEY(StateId) REFERENCES State(StateId),
+DistrictName VARCHAR(255),
+Status INT DEFAULT 1
+);
+
+INSERT INTO District (CountryId, StateId, DistrictName) VALUES
+(1, 1, 'Dehradun'),
+(1, 1, 'Haridwar'),
+(1, 1, 'Nainital'),
+
+(1, 2, 'Lucknow'),
+(1, 2, 'Kanpur'),
+(1, 2, 'Varanasi'),
+
+(1, 3, 'New Delhi'),
+
+(2, 4, 'Los Angeles'),
+(2, 4, 'San Diego'),
+
+(2, 5, 'Houston'),
+(2, 5, 'Dallas'),
+
+(3, 6, 'Toronto'),
+(3, 6, 'Ottawa');
+
+
+SELECT * FROM District;
+
+
+
+
 CREATE TABLE User(
-UserId INT PRIMARY KEY AUTO_INCREMENT,
+UserId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 UserTypeId INT, FOREIGN KEY(UserTypeId) REFERENCES UserType(UserTypeId),
 FirstName VARCHAR(255) NOT NULL,
 LastName VARCHAR(255) NOT NULL,
@@ -83,10 +147,14 @@ PenCardNumber VARCHAR(255)
  LastName VARCHAR(255),
  Phone VARCHAR(255),
  Address VARCHAR(255),
- RouteId INT NOT NULL,
- DriverId Int NOT NULL,
+ RouteId INT NOT NULL, FOREIGN KEY(RouteId) REFERENCES Route(RouteId),
+ DriverId Int NOT NULL, FOREIGN KEY(DriverId) REFERENCES User(UserId),
+ IsAlone bool NOT NULL DEFAULT TRUE,
+ TotalPassengerWhoTraval Int NOT NULL,
  Status INT DEFAULT 1
  );
+ 
+ SELECT * FROM Passenger;
 
 
 
