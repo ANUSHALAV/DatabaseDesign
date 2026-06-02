@@ -104,9 +104,9 @@ Status INt NOT NULL DEFAULT 1
 ) AUTO_INCREMENT = 101;
 
 -- insert query for super admin and admin 
-INSERT INTO User (UserTypeId,FirstName,LastName,Address,Gender,Phone,Email,LoginId,Password) VALUES
-(1,"Anushalav","Bhatt","Dhalwala","Male","8909506360","superAdmin@gmail.com","superAdmin","superAdmin"),
-(2,"Aman","Singh","Dhalwala","Male","9876543234","admin@gmail.com","admin","admin");
+INSERT INTO User (UserTypeId,FirstName,LastName,Address,State,District,PinCode,Gender,Phone,Email,LoginId,Password) VALUES
+(1,"Anushalav","Bhatt","Dhalwala",3,3,456754,"Male","8909506360","superAdmin@gmail.com","superAdmin","superAdmin"),
+(2,"Aman","Singh","Dhalwala",1,2,345634,"Male","9876543234","admin@gmail.com","admin","admin");
 
 
 SELECT * FROM User;
@@ -154,7 +154,19 @@ PenCardNumber VARCHAR(255)
  Status INT DEFAULT 1
  );
  
+ INSERT INTO User (UserTypeId,FirstName,LastName,Address,Gender,State,District,PinCode,AadharNumber,LisenseNumber,PenCardNumber,Phone,Email,LoginId,Password) VALUES
+(3,"Anushalav","Bhatt","Dhalwala","Male",1,1,789098,"656565432123","UK6545TY67876","FLPIY6543","8909506360","anushalav@gmail.com","anushalav","anushalav"),
+(3,"Aman","Singh","Dhalwala","Male",1,1,789048,"656535432123","UK6545TY611111","FLPIY1111","9876543234","aman@gmail.com","aman","aman");
+ 
+ ALTER TABLE Passenger DROP COLUMN Address;
+ 
+ ALTER TABLE Passenger MODIFY COLUMN TotalPassengerWhoTraval INT NOT NULL DEFAULT 1;
+ 
  SELECT * FROM Passenger;
+ 
+ INSERT INTO Passenger (FirstName,LastName,Phone,RouteId,DriverId,IsAlone,TotalPassengerWhoTraval) VALUES
+ ("Anushaalav","Bhatt","8909506360",1,101,true,1),
+ ("Aman","Singh","9876543456",2,102,false,3);
 
 
 
