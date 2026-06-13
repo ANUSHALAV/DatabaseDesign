@@ -43,9 +43,10 @@ CALL GetDistrictByCountryIdAndStateId(1,1);
 DELIMITER $$
 CREATE PROCEDURE GetUserDetails(IN u_Status INT)
 BEGIN 
-SELECT u.UserId,u.UserTypeId,u.FirstName,u.LastName,u.Address,u.State,s.StateName,
+SELECT u.UserId,u.UserTypeId,ut.UserType,u.FirstName,u.LastName,u.Address,u.State,s.StateName,
 u.District,d.DistrictName,u.PinCode,u.AadharNumber,u.LisenseNumber,u.PenCardNumber,
 u.Gender,u.Phone,u.Status FROM User AS u 
+INNER JOIN UserType AS ut on u.UserTypeId = ut.UserTypeId
 INNER JOIN State AS s on u.State = s.StateId
 INNER JOIN District AS d on u.District = d.DistrictId
 WHERE u.Status = u_Status ;
@@ -54,16 +55,22 @@ DELIMITER ;
 
 CALL GetUserDetails(1);
 
--- DELIMITER $$
--- CREATE PROCEDURE GetUserDetails(IN u_Status INT)
--- BEGIN 
--- SELECT * FROM User AS u 
--- INNER JOIN Country AS c ON u.Country = c.CountryId
--- INNER JOIN Route AS r on u.RouteId = r.RouteId
--- INNER JOIN State AS s on u.Stateid = s.StateId
--- WHERE u.Status = u_Status ;
--- END $$
--- DELIMITER ;-- 
+
+DELIMITER $$
+CREATE PROCEDURE GetPassengerDetails(IN s_Status INT)
+BEGIN 
+SELECT p.PassengerId,p.FirstName,p.LastName,p.Phone,p.Address,p.RouteId,r.RouteName,r.PricePerPerson,
+p.DriverId,u.FirstName,u.LastName,p.IsAlone,p.TotalPassengerWhoTraval,p.Status FROM Passenger AS p
+INNER JOIN Route AS r on r.RouteId = p.RouteId
+INNER JOIN User AS u on u.UserId = p.DriverId
+WHERE p.Status = s_Status;
+END $$
+DELIMITER ;
+
+CALL GetPassengerDetails(1);
+
+DROP PROCEDURE GetPassengerDetails;
+
 
 
 
