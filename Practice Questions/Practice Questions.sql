@@ -15,6 +15,7 @@ Salary VARCHAR(250) NOT NULL,
 DepartmentId INT NOT NULL,
 RMId INT NOT NULL,
 ManagerId INT NOT NULL,
+JoiningDate DATE NOT NUll,
 
 FOREIGN KEY(DepartmentId) REFERENCES Departments(DepartmentId),
 FOREIGN KEY(RMId) REFERENCES Employees(EmpId),
@@ -28,6 +29,14 @@ SELECT * FROM Employee;
 
 -- Select only the name and email columns from employees.
 SELECT Name,Email FROM Employees;
+
+-- Select all employees and give the table an alias e.
+SELECT * FROM Employee AS e;
+
+-- How do you select the first 10 rows from a Employee table
+SELECT * FROM Employee ORDER BY JoiningDate LIMIT 10;
+
+
 
 
 
