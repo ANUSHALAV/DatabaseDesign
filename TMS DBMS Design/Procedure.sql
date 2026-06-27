@@ -69,7 +69,6 @@ DELIMITER ;
 
 CALL GetPassengerDetails(1);
 
-DROP PROCEDURE GetPassengerDetails;
 
 
 
