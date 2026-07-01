@@ -45,6 +45,29 @@ SELECT * FROM Employees WHERE Age BETWEEN 25 AND 35;
 -- Select employees where name starts with the letter 'A'
 SELECT * FROM Employees WHERE Name LIKE "A%";
 
+-- select all employees ordered by salary in descending order. 
+SELECT * FROM Employees ORDER BY Salary DESC;
+
+-- Select the top 5 highest-paid employees. 
+SELECT * FROM Employees ORDER BY Salary DESC LIMIT 5;
+
+-- select all employees ordered by salary ascending, then by name ascending. 
+SELECT * FROM Employees ORDER BY Salary ASC , Name ASC;
+-- second answere
+SELECT * FROM Employees ORDER BY Salary,Name;
+
+-- Select the last 5 records inserted in an Employees table (assume id is auto-increment).
+SELECT * FROM Employees ORDER BY Id DESC LIMIT 5;
+
+
+-- Select employees ordered by department A–Z and within each department by name A–Z.
+SELECT * FROM Employees ORDER BY Department;
+
+
+
+
+ 
+
 
 
 
