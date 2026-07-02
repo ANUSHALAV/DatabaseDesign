@@ -33,14 +33,18 @@ SELECT Name,Email FROM Employees;
 -- Select all employees and give the table an alias e.
 SELECT * FROM Employees AS e;
 
+
 -- How do you select the first 10 rows from a Employee table
 SELECT * FROM Employees ORDER BY JoiningDate LIMIT 10;
+
 
 -- Select all employees where department = 'IT'
 SELECT * FROM Employees WHERE DepartmentId = 1;
 
+
 -- select employees where age is between 25 and 35. 
 SELECT * FROM Employees WHERE Age BETWEEN 25 AND 35;
+
 
 -- Select employees where name starts with the letter 'A'
 SELECT * FROM Employees WHERE Name LIKE "A%";
@@ -48,13 +52,16 @@ SELECT * FROM Employees WHERE Name LIKE "A%";
 -- select all employees ordered by salary in descending order. 
 SELECT * FROM Employees ORDER BY Salary DESC;
 
+
 -- Select the top 5 highest-paid employees. 
 SELECT * FROM Employees ORDER BY Salary DESC LIMIT 5;
+
 
 -- select all employees ordered by salary ascending, then by name ascending. 
 SELECT * FROM Employees ORDER BY Salary ASC , Name ASC;
 -- second answere
 SELECT * FROM Employees ORDER BY Salary,Name;
+
 
 -- Select the last 5 records inserted in an Employees table (assume id is auto-increment).
 SELECT * FROM Employees ORDER BY Id DESC LIMIT 5;
@@ -62,6 +69,22 @@ SELECT * FROM Employees ORDER BY Id DESC LIMIT 5;
 
 -- Select employees ordered by department A–Z and within each department by name A–Z.
 SELECT * FROM Employees ORDER BY Department;
+
+
+-- Select all employees where PhoneNumber is NULL. 
+SELECT * FROM Employees WHERE PhoneNumber IS NULL;
+
+
+-- select all employees where email is NOT NULL. 
+SELECT * FROM Employees WHERE Email IS NOT NUll;
+
+
+-- Select all records where ManagerId is NULL (top-level managers). 
+SELECT * FROM Employees WHERE ManagerId IS NUll;
+
+
+-- Replace NULL values in phone_number with 'N/A' using COALESCE. 
+SELECT *,COALESCE(PhoneNumber,'N/A') AS PhoneNumber FROM Employees;
 
 
 
