@@ -87,6 +87,27 @@ SELECT * FROM Employees WHERE ManagerId IS NUll;
 SELECT *,COALESCE(PhoneNumber,'N/A') AS PhoneNumber FROM Employees;
 
 
+-- Count the total number of rows in the employees table. 
+SELECT COUNT(*) FROM Employees;
+
+
+-- Find the maximum salary in the employees table. 
+SELECT MAX(Salary) AS MaxSalary FROM Employees;
+
+
+-- Find the minimum salary in the employees table.
+SELECT MIN(Salary) AS MinSalary FROM Employees;
+
+
+-- Find the average salary of all employees.
+SELECT AVG(Salary) AS AverageSalary FROM Employees; 
+
+
+-- Find the total sum of all Salary in the employees table. 
+SELECT SUM(Salary) AS TotalAmount FROM Employees;
+
+
+
 
 
  
