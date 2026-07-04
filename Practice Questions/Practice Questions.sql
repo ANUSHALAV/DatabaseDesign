@@ -12,7 +12,7 @@ DateOfBirth DATE NOT NULL,
 Gender VARCHAR(250) NOT NULL,
 PhoneNumber VARCHAR(250) NOT NULL,
 Salary VARCHAR(250) NOT NULL,
-DepartmentId INT NOT NULL,
+Department VARCHAR(250) NOT NULL,
 RMId INT NOT NULL,
 ManagerId INT NOT NULL,
 JoiningDate DATE NOT NUll,
@@ -39,7 +39,7 @@ SELECT * FROM Employees ORDER BY JoiningDate LIMIT 10;
 
 
 -- Select all employees where department = 'IT'
-SELECT * FROM Employees WHERE DepartmentId = 1;
+SELECT * FROM Employees WHERE Department = 'IT';
 
 
 -- select employees where age is between 25 and 35. 
@@ -47,7 +47,7 @@ SELECT * FROM Employees WHERE Age BETWEEN 25 AND 35;
 
 
 -- Select employees where name starts with the letter 'A'
-SELECT * FROM Employees WHERE Name LIKE "A%";
+SELECT * FROM Employees WHERE Name LIKE 'A%';
 
 -- select all employees ordered by salary in descending order. 
 SELECT * FROM Employees ORDER BY Salary DESC;
@@ -107,15 +107,16 @@ SELECT AVG(Salary) AS AverageSalary FROM Employees;
 SELECT SUM(Salary) AS TotalAmount FROM Employees;
 
 
+-- Count the number of employees in each department.
+SELECT Department,COUNT(*) AS NoOfEmployees FROM Employees GROUP BY Department;
 
 
-
- 
-
-
+-- Find the average salary per department.
+SELECT Department,AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department;
 
 
-
+-- Find departments where the average salary is greater than 50,000.
+SELECT Department,AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department HAVING AVG(Salary)>50000; 
 
 
 
