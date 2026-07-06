@@ -119,5 +119,13 @@ SELECT Department,AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department;
 SELECT Department,AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department HAVING AVG(Salary)>50000; 
 
 
+-- Find the highest salary in each department. 
+SELECT Department,MAX(Salary) AS HighestSalary FROM Employees GROUP BY Department;
+
+
+-- Find the smallest salary in each department
+SELECT Department,MIN(Salary) AS SmallestSalary FROM Employees GROUP BY Department;
+
+
 
 
