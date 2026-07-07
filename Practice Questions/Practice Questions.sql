@@ -127,5 +127,34 @@ SELECT Department,MAX(Salary) AS HighestSalary FROM Employees GROUP BY Departmen
 SELECT Department,MIN(Salary) AS SmallestSalary FROM Employees GROUP BY Department;
 
 
+-- Select the full name by concatenating first_name and last_name with a space. 
+SELECT CONCAT(FirstName,' ',LastName) AS FullName FROM Employees;
+
+ 
+--  Convert all email values to uppercase. 
+SELECT UPPER(Email) AS EmailIds FROM Employees;
 
 
+-- Find the length of each employee's name. 
+SELECT LENGTH(FirstName) AS FirstNameLetterCount FROM Employees;
+
+
+-- Extract only the domain part from an email (e.g., gmail.com from user@gmail.com). 
+SELECT SUBSTRING_INDEX(Email,'@',-1) AS EmailDomain FROM Employees;
+
+
+-- Select employees whose name contains the word 'kumar' (case-insensitive). 
+SELECT * FROM Employees WHERE LOWER(LastName) LIKE 'kumar';
+
+
+-- Trim whitespace from the name column. 
+SELECT TRIM(CONCAT(FirstName,' ',LastName)) AS Name FROM Employees;
+
+
+-- Replace all occurrences of 'Pvt Ltd' with 'Private Limited' in the company column. 
+SELECT REPLACE(PriviewsCompanyName,'Pvt Ltd','Private Limited') AS PriviewsCompanyName FROM Employees;
+
+
+-- reverse the name column values. 
+SELECT REVERSE(CONCAT(FirstName,' ',LastName)) AS FullName FROM Employees;
+ 
