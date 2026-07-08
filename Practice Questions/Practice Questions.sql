@@ -157,4 +157,12 @@ SELECT REPLACE(PriviewsCompanyName,'Pvt Ltd','Private Limited') AS PriviewsCompa
 
 -- reverse the name column values. 
 SELECT REVERSE(CONCAT(FirstName,' ',LastName)) AS FullName FROM Employees;
+
+
+-- Select all employees who join today.   
+SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
+
+
+-- select all employees who joined in the year 2023.
+ SELECT * FROM Employees WHERE YEAR(JoiningDate) =2023;
  
