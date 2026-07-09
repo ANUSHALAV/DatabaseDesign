@@ -166,3 +166,18 @@ SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
 -- select all employees who joined in the year 2023.
  SELECT * FROM Employees WHERE YEAR(JoiningDate) =2023;
  
+ 
+ -- Write an INNER JOIN between employees and departments on department_id.
+ SELECT * FROM Employees AS emp INNER JOIN Department AS dept ON emp.DepartmentId=dept.DepartmentId;
+ 
+ 
+ -- Write a LEFT JOIN to get all employees even if they have no department assigned.
+ SELECT * FROM Employees AS emp LEFT JOIN Department AS dept ON emp.DepartmentId = dept.DepartmentId;
+ 
+ 
+ -- Write a RIGHT JOIN to get all departments even if they have no employees. 
+ SELECT * FROM Employees AS emp RIGHT JOIN Department AS dept ON emp.DepartmentId = dept.DepartmentId;
+ 
+ 
+ -- Find all employees who do NOT have a matching department (using LEFT JOIN + WHERE NULL).
+ SELECT * FROM Employees AS emp LEFT JOIN Department AS dept ON emp.DepartmentId = dept.DepartmentId WHERE dept.DepartmentId IS NULL;
