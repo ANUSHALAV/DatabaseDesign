@@ -181,3 +181,10 @@ SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
  
  -- Find all employees who do NOT have a matching department (using LEFT JOIN + WHERE NULL).
  SELECT * FROM Employees AS emp LEFT JOIN Department AS dept ON emp.DepartmentId = dept.DepartmentId WHERE dept.DepartmentId IS NULL;
+ 
+ 
+ -- Self JOIN — find all employees and their manager's name (both from the employees table). 
+ SELECT emp.Id AS EmployeeId,emp.FirstName AS EmployeeFirstName,emp.LastName AS EmployeeLastName,
+ mngr.Id AS ManagerId , mngr.FirstName AS ManagerFirstName,mngr.LastName AS ManagerLastName 
+ FROM Employees AS emp LEFT JOIN Employees AS mngr 
+ ON emp.ManagerId = mngr.Id;
