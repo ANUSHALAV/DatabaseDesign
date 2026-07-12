@@ -188,3 +188,15 @@ SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
  mngr.Id AS ManagerId , mngr.FirstName AS ManagerFirstName,mngr.LastName AS ManagerLastName 
  FROM Employees AS emp LEFT JOIN Employees AS mngr 
  ON emp.ManagerId = mngr.Id;
+ 
+ 
+ -- Find employees who earn more than the average salary (using a subquery). 
+ SELECT * FROM Employees AS emp WHERE emp.Salary > (SELECT AVG(Salary) FROM Employees);
+ 
+ 
+ -- Find the employee with the highest salary using a subquery. 
+ SELECT * FROM Employees AS emp WHERE emp.Salary = (SELECT MAX(Salary) FROM Employees);
+ 
+ 
+ -- Select the second highest salary using a subquery. 
+ SELECT * FROM Employees AS emp WHERE emp.Salary < (SELECT MAX(Salary) FROM Employees)  
