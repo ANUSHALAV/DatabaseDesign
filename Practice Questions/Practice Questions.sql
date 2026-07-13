@@ -199,4 +199,8 @@ SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
  
  
  -- Select the second highest salary using a subquery. 
- SELECT * FROM Employees AS emp WHERE emp.Salary < (SELECT MAX(Salary) FROM Employees)  
+ SELECT * FROM Employees AS emp WHERE emp.Salary < (SELECT MAX(Salary) FROM Employees);
+ 
+ 
+ -- Find the top 3 departments by average salary using a subquery. 
+ SELECT * FROM (SELECT Department, AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department) AS DeptAvg ORDER BY AvgSalary DESC LIMIT 3;
