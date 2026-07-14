@@ -16,6 +16,7 @@ Department VARCHAR(250) NOT NULL,
 RMId INT NOT NULL,
 ManagerId INT NOT NULL,
 JoiningDate DATE NOT NUll,
+Status INT NOT NULL DEFAULT 1,
 
 FOREIGN KEY(DepartmentId) REFERENCES Departments(DepartmentId),
 FOREIGN KEY(RMId) REFERENCES Employees(EmpId),
@@ -204,3 +205,22 @@ SELECT * FROM Employees WHERE Date(JoiningDate)=CURRENT_Date();
  
  -- Find the top 3 departments by average salary using a subquery. 
  SELECT * FROM (SELECT Department, AVG(Salary) AS AvgSalary FROM Employees GROUP BY Department) AS DeptAvg ORDER BY AvgSalary DESC LIMIT 3;
+
+
+-- Add a column salary_grade — 'Low' if salary < 30k, 'Mid' if 30k–70k, 'High' if above 70k. 
+SELECT CONCAT(emp.FirstName,' ',emp.LastName) , emp.Salary,
+CASE
+WHEN emp.Salary<30000 THEN 'Low'
+WHEN emp.Salary BETWEEN 30000 AND 70000 THEN 'Mid'
+WHEN emp.Salary>70000 THEN 'High'
+END 
+AS Salary_Grade FROM Employees AS emp ;
+
+
+-- Show 'Active' or 'Inactive' based on whether status in employees table
+SELECT emp.FirstName,emp.LastName,emp.PhoneNumber,emp.Address,emp.Email,emp.JoiningDate,
+CASE 
+WHEN emp.Status=1 THEN 'Active'
+ELSE 'Inactive'
+END AS EmployeStatus FROM Employees AS emp;
+ 
