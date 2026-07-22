@@ -27,3 +27,43 @@ DepartmentId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 DepartmentName VARCHAR(255) NOT NULL,
 Status INT NOT NULL DEFAULT 1
 ); 
+
+
+-- Employees table ke saare records nikalo.
+SELECT * FROM Employees;
+
+
+-- Sirf FirstName aur Salary dikhao.
+SELECT FirstName,Salary FROM Employees;
+
+
+-- Sirf unique City dikhao.
+SELECT DISTINCT City FROM Employees; 
+
+
+-- Salary 50000 se jyada wale employees.
+SELECT * FROM Employees WHERE Salary > 50000;
+
+
+-- Female employees.
+SELECT * FROM Employees WHERE Gender = 'Female';
+
+
+-- Delhi city ke employees.
+SELECT * FROM Employees WHERE City = 'Delhi';
+
+
+-- Salary 40000-70000 ke beech
+SELECT * FROM Employees Where Salary BETWEEN 40000 AND 70000;   
+
+
+-- Age 25 se kam.
+SELECT * FROM Employees WHERE Age < 25;
+
+
+-- HireDate ke according sort.
+SELECT * FROM Employees ORDER BY HireDate ASC;
+
+
+-- Top 5 highest salary employees    
+SELECT * FROM Employees ORDER BY Salary DESC LIMIT 5;  
