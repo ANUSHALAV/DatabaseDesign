@@ -67,3 +67,47 @@ SELECT * FROM Employees ORDER BY HireDate ASC;
 
 -- Top 5 highest salary employees    
 SELECT * FROM Employees ORDER BY Salary DESC LIMIT 5;  
+
+
+--  Salary >60000
+SELECT * FROM Employees WHERE Salary > 60000;
+
+
+-- Salary <30000
+SELECT * FROM Employees WHERE Salary < 30000;
+
+
+-- Age>=30
+SELECT * FROM Employees WHERE Age >= 30;
+
+
+-- Gender='Male'
+SELECT * FROM Employees WHERE Gender = 'Male';   
+
+
+--  City='Mumbai'
+SELECT * FROM Employees WHERE City = 'Mumbai';
+
+
+-- DepartmentID=3
+SELECT * FROM Employees WHERE DepartmentId = 3;
+
+
+-- Salary!=50000
+SELECT * FROM Employees WHERE Salary != 50000;
+-- ---------------- ya fir aise --------------------------
+SELECT * FROM Employees WHERE Salary <> 50000;
+
+
+-- Age<>25
+SELECT * FROM Employees WHERE Age <> 25;
+-- -------------------ya fir aise --------------------
+SELECT * FROM Employees WHERE Age != 25;
+
+
+-- EmployeeID>50
+SELECT * FROM Employees WHERE EmployeeId > 50;
+
+
+-- HireDate after 2023-01-01
+SELECT * FROM Employees WHERE HireDate > '2023-01-01';     
