@@ -111,3 +111,43 @@ SELECT * FROM Employees WHERE EmployeeId > 50;
 
 -- HireDate after 2023-01-01
 SELECT * FROM Employees WHERE HireDate > '2023-01-01';     
+
+
+--  Salary ASC
+SELECT Salary FROM Employees ORDER BY Salary;
+
+
+-- Salary DESC
+SELECT Salary FROM Employees ORDER BY Salary DESC; 
+
+
+--  FirstName A-Z
+SELECT FirstName FROM Employees ORDER BY FirstName;
+
+
+-- FirstName Z-A
+SELECT FirstName FROM Employees ORDER BY FirstName DESC;
+
+
+-- Latest HireDate
+SELECT HireDate FROM Employees ORDER BY HireDate DESC LIMIT 1;
+
+
+-- Age DESC
+SELECT Age FROM Employees ORDER BY Age DESC;
+
+
+-- Salary DESC then First Name ASC
+SELECT * FROM Employees ORDER BY Salary DESC , FirstName;  
+
+
+-- DESC City then Salary
+SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
+
+
+-- ASC Department then Salary DESC
+ SELECT * FROM Employees ORDER BY DepartmentId , Salary DESC;
+ 
+ 
+ -- LastName ASC
+ SELECT * FROM Employees ORDER BY LastName;
