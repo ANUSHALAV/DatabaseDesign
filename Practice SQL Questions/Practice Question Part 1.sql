@@ -151,3 +151,31 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- LastName ASC
  SELECT * FROM Employees ORDER BY LastName;
+ 
+ 
+ -- Unique Cities
+ SELECT DISTINCT City FROM Employees;
+ 
+ 
+ -- Unique Departments
+ SELECT DISTINCT DepartmentId FROM Employees;
+ 
+ 
+ -- Unique Salary
+ SELECT DISTINCT Salary FROM Employees;
+ 
+ 
+ -- Unique ManagerID
+ SELECT DISTINCT ManagerID FROM Employees;
+ 
+ 
+ -- Unique Age
+ SELECT DISTINCT Age FROM Employees;
+ 
+ 
+ -- City+Gender
+ SELECT DISTINCT City,Gender FROM Employees;
+ 
+ 
+ -- Department+City
+ SELECT DISTINCT DepartmentId,City FROM Employees;
