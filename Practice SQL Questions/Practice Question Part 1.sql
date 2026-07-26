@@ -179,3 +179,35 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- Department+City
  SELECT DISTINCT DepartmentId,City FROM Employees;
+ 
+ 
+ -- Top 3 Salary
+ SELECT * FROM Employees ORDER BY Salary DESC LIMIT 3;
+ 
+ 
+ -- Top 10 Employees
+ SELECT * FROM Employees LIMIT 10;
+ 
+ 
+ -- Top 5 Youngest
+ SELECT * FROM Employees ORDER BY Age LIMIT 5;
+ 
+ 
+ -- Top 7 Oldest
+ SELECT * FROM Employees ORDER BY Age DESC LIMIT 7;
+ 
+ 
+ -- Top 5 Recently Joined
+ SELECT * FROM Employees ORDER BY HireDate DESC LIMIT 5;
+ 
+ 
+ -- Top 5 Lowest Salary
+ SELECT Salary FROM Employees ORDER BY Salary LIMIT 5;
+ 
+ 
+ -- Top 2 Female Highest Salary
+ SELECT * FROM Employees WHERE Gender = 'Female' ORDER BY Salary DESC LIMIT 2;
+ 
+ 
+ -- Top 4 Male Lowest Salary
+ SELECT * FROM Employees WHERE Gender = 'Male' ORDER BY Salary LIMIT 4;
