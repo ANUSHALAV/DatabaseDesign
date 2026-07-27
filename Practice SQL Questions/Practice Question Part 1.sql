@@ -211,3 +211,43 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- Top 4 Male Lowest Salary
  SELECT * FROM Employees WHERE Gender = 'Male' ORDER BY Salary LIMIT 4;
+ 
+ 
+ -- Name starts with A
+ SELECT FirstName FROM Employees WHERE FirstName LIKE 'A%';
+ 
+ 
+ -- Ends with n
+ SELECT LastName FROM Employees WHERE LastName LIKE '%n';
+ 
+ 
+ -- Contains 'ra'
+ SELECT FirstName FROM Employees WHERE FirstName LIKE '%ra%';
+ 
+ 
+ -- Email contains gmail
+ SELECT * FROM Employees WHERE Email LIKE '%gmail%';
+ 
+ 
+ -- City starts M
+ SELECT City FROM Employees WHERE City LIKE 'M%';
+ 
+ 
+ -- Second letter a
+ SELECT FirstName FROM Employees WHERE FirstName LIKE '_a%';
+ 
+ 
+ -- LastName starts S
+ SELECT LastName FROM Employees WHERE LastName LIKE 'S%';
+ 
+ 
+ -- Email ends .com
+ SELECT Email FROM Employees WHERE Email LIKE '%.com';
+ 
+ 
+ -- Name length 5
+ SELECT * FROM Employees WHERE FirstName LIKE '_____';
+ 
+ 
+ -- City contains pur
+ SELECT * FROM Employees WHERE City LIKE '%pur%';
