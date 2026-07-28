@@ -251,3 +251,35 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- City contains pur
  SELECT * FROM Employees WHERE City LIKE '%pur%';
+ 
+ 
+ -- Salary 30000-60000
+ SELECT * FROM Employees WHERE Salary BETWEEN 30000 AND 60000;
+ 
+ 
+ -- Age 25-35
+ SELECT * FROM Employees WHERE Age BETWEEN 25 AND 35;
+ 
+ 
+ -- HireDate in 2024
+ SELECT * FROM Employees WHERE HireDate BETWEEN '2024-01-01' AND '2024-12-31';
+ 
+ 
+ -- EmployeeID 20-50
+ SELECT * FROM Employees WHERE EmployeeId BETWEEN 20 AND 50;
+ 
+ 
+ -- DepartmentID 2-5
+ SELECT * FROM Employees WHERE DepartmentId BETWEEN 2 AND 5;
+ 
+ 
+ -- Salary 70000-100000
+ SELECT * FROM Employees WHERE Salary BETWEEN 70000 AND 100000;
+ 
+ 
+ -- Age 40-60
+ SELECT * FROM Employees WHERE Age BETWEEN 40 AND 60;
+ 
+ 
+ -- HireDate 2022-2025
+ SELECT * FROM Employees WHERE HireDate BETWEEN '2022-01-01' AND '2025-12-31';
