@@ -283,3 +283,39 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- HireDate 2022-2025
  SELECT * FROM Employees WHERE HireDate BETWEEN '2022-01-01' AND '2025-12-31';
+ 
+ 
+ -- City IN Delhi,Mumbai
+ SELECT * FROM Employees WHERE City IN ('Delhi','Mumbai');
+ -- -------------------------------------Ya -----------------------------
+ SELECT * FROM Employees WHERE City = 'Delhi' OR City = 'Mumbai';
+ 
+ 
+ -- DepartmentID IN 1,3,5
+ SELECT * FROM Employees WHERE DepartmentId IN (1,3,5);
+ 
+ 
+ -- Salary IN 30000,50000,70000
+ SELECT * FROM Employees WHERE Salary IN (30000,50000,70000);
+ 
+ 
+ -- Age IN 25,30,35
+ SELECT * FROM Employees WHERE Age IN (25,30,35);
+ 
+ 
+ -- Gender IN Male,Female
+ SELECT * FROM Employees WHERE Gender IN ('Male','Female');
+ -- ---------------------------Ya ------------------------------------
+ SELECT * FROM Employees WHERE Gender = 'Male' OR Gender = 'Female';
+ 
+ 
+ -- EmployeeId IN 10,20,30
+ SELECT * FROM Employees WHERE EmployeeId IN (10,20,30);
+ 
+ 
+ -- ManagerID IN 2,5
+ SELECT * FROM Employees WHERE ManagerId IN (2,5);
+ 
+ 
+ -- City IN Noida,Gurgaon
+ SELECT * FROM Employees WHERE City IN ('Noida','Gurgaon');
