@@ -319,3 +319,43 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- City IN Noida,Gurgaon
  SELECT * FROM Employees WHERE City IN ('Noida','Gurgaon');
+ 
+ 
+ -- Total Employees
+ SELECT COUNT(*) AS TotalEmployees FROM Employees;
+ 
+ 
+ -- Average Salary
+ SELECT AVG(Salary) AS AverageSalary FROM Employees;
+ 
+ 
+ -- Maximum Salary
+ SELECT MAX(Salary) AS MaximumSalary FROM Employees;
+ 
+ 
+ -- Minimum Salary
+ SELECT MIN(Salary) AS MinimumSalary FROM Employees;
+ 
+ 
+ -- Total Salary
+ SELECT SUM(Salary) AS TotalSalary FROM Employees;
+ 
+ 
+ -- Average Age
+ SELECT AVG(Age) AS AverageAge FROM Employees;
+ 
+ 
+ -- Highest Age
+ SELECT MAX(Age) AS HighestAge FROM Employees;
+ 
+ 
+ -- Lowest Age
+ SELECT MIN(Age) AS LowestAge FROM Employees;
+ 
+ 
+ -- Count Female
+ SELECT COUNT(*) AS CountFemale FROM Employees WHERE Gender = 'Female';
+ 
+ 
+ -- Count Male
+ SELECT COUNT(*) AS CountMale FROM Employees WHERE Gender = 'Male';
