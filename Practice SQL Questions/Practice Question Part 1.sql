@@ -359,3 +359,43 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- Count Male
  SELECT COUNT(*) AS CountMale FROM Employees WHERE Gender = 'Male';
+ 
+ 
+ -- Department employee count
+ SELECT DepartmentId,COUNT(*) AS EmployeesCount FROM Employees GROUP BY DepartmentId;
+ 
+ 
+ -- Department avg salary
+ SELECT DepartmentId,AVG(Salary) AS AvgSalary FROM Employees GROUP BY DepartmentId;
+ 
+ 
+ -- Gender count
+ SELECT Gender,COUNT(*) AS GenderCount FROM Employees GROUP BY Gender;
+ 
+ 
+ -- City count
+ SELECT City,COUNT(*) AS CityCount FROM Employees GROUP BY City;
+ 
+ 
+ -- City avg salary
+ SELECT City ,AVG(Salary) AS CityAvgSalary FROM Employees GROUP BY City;
+ 
+ 
+ -- Department max salary
+ SELECT DepartmentId , MAX(Salary) AS MaxSalary FROM Employees GROUP BY DepartmentId;
+ 
+ 
+ -- . Department min salary
+ SELECT DepartmentId ,MIN(Salary) AS MinSalary FROM Employees GROUP BY DepartmentId;
+ 
+ 
+ -- Gender avg age
+ SELECT Gender,AVG(Age) AS AvgAge FROM Employees GROUP BY Gender;
+ 
+ 
+ -- Manager employee count
+ SELECT ManagerId , COUNT(*) AS EmployeeCount FROM Employees GROUP BY ManagerId;
+ 
+ 
+ -- Year wise hiring
+ SELECT YEAR(HiringDate) AS HiringYear ,COUNT(*) AS EmployeesCount FROM Employees GROUP BY YEAR(HiringDate);
