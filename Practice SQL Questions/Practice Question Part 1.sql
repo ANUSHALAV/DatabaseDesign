@@ -399,3 +399,43 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- Year wise hiring
  SELECT YEAR(HiringDate) AS HiringYear ,COUNT(*) AS EmployeesCount FROM Employees GROUP BY YEAR(HiringDate);
+ 
+ 
+ -- Departments >5 employees
+ SELECT DepartmentId,COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY DepartmentId HAVING COUNT(*)>5;
+ 
+ 
+ -- Avg salary >50000
+ SELECT DepartmentId,AVG(Salary) AS AvgSalary FROM Employees GROUP BY DepartmentId HAVING AVG(Salary)>50000;
+ 
+ 
+ -- Cities >3 employees
+ SELECT City,COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY City HAVING COUNT(*) >3;
+ 
+ 
+ -- Max salary >80000
+ SELECT DepartmentId , MAX(Salary) AS MaxSalary FROM Employees GROUP BY DepartmentId HAVING MAX(Salary)>80000;
+ 
+ 
+ -- Gender count >10
+ SELECT Gender,COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY Gender HAVING COUNT(*)>10;
+ 
+ 
+ -- Managers >5 employees
+ SELECT ManagerId ,COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY ManagerId HAVING COUNT(*)>5;
+ 
+ 
+ -- Department avg age >30
+ SELECT DepartmentId,AVG(Age) AS AvgAge FROM Employees GROUP BY DepartmentId HAVING AVG(Age)>30;
+ 
+ 
+ -- Salary sum >500000
+ SELECT DepartmentId, SUM(Salary) AS SumOfSalary FROM Employees GROUP BY DepartmentId HAVING SUM(Salary)>500000;
+ 
+ 
+ -- City avg salary >60000
+ SELECT City,AVG(Salary) AS AvgSalary FROM Employees GROUP BY City HAVING AVG(Salary)>60000;
+ 
+ 
+ -- Hiring year >20 employees 
+ SELECT YEAR(HiringDate),COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY YEAR(HiringDate) HAVING COUNT(*) > 20;
