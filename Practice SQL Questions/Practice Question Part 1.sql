@@ -439,3 +439,31 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  
  -- Hiring year >20 employees 
  SELECT YEAR(HiringDate),COUNT(*) AS NumberOfEmployees FROM Employees GROUP BY YEAR(HiringDate) HAVING COUNT(*) > 20;
+ 
+ 
+ -- Employee with department
+ SELECT emp.FirstName,emp.LastName,dept.DepartmentId,dept.DepartmentName FROM 
+ Employees AS emp INNER JOIN Department AS dept ON
+ emp.DepartmentId = dept.DepartmentId;
+ 
+ 
+ -- Employees in IT
+ SELECT emp.FirstName,emp.LastName,dept.DepartmentId,dept.DepartmentName FROM 
+ Employees AS emp INNER JOIN Department AS dept ON 
+ emp.DepartmentId = dept.DepartmentId WHERE dept.DepartmentName = 'IT';
+ 
+ 
+ -- Employees in HR
+ SELECT emp.FirstName,emp.LastName,dept.DepartmentId,dept.DepartmentName FROM 
+ Employees AS emp INNER JOIN Department AS dept ON 
+ emp.DepartmentId = dept.DepartmentId WHERE dept.DepartmentName = 'HR';
+ 
+ 
+ -- Department employee count
+ SELECT dept.DepartmentName,COUNT(*) AS NumberOfEmployees FROM Employees AS emp INNER JOIN Department AS dept ON
+ emp.DepartmentId = dept.DepartmentId GROUP BY dept.DepartmentName;
+ 
+ 
+ -- Highest salary department
+ SELECT dept.DepartmentName,MAX(Salary) AS HighestSalary FROM Employees AS emp INNER JOIN Department AS dept ON
+ emp.DepartmentId = dept.DepartmentId GROUP BY dept.DepartmentName;
