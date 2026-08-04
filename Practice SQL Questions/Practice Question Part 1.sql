@@ -467,3 +467,21 @@ SELECT * FROM Employees ORDER BY City DESC , Salary DESC;
  -- Highest salary department
  SELECT dept.DepartmentName,MAX(Salary) AS HighestSalary FROM Employees AS emp INNER JOIN Department AS dept ON
  emp.DepartmentId = dept.DepartmentId GROUP BY dept.DepartmentName;
+
+
+--  Employee with manager
+SELECT emp.FirstName,emp.LastName,emp.Address,emp.Email,emp.Gender,emp.Phone,CONCAT(mngr.FirstName,' ',mngr.LastName) AS ManagerName FROM 
+Employees As emp INNER JOIN Employees AS mngr ON emp.ManagerId = mngr.EmployeeId;
+
+
+-- Joined this year
+SELECT * FROM Employees WHERE YEAR(JoiningDate) = YEAR(NOW());
+
+
+-- Joined this month
+SELECT * FROM Employees WHERE MONTH(JoiningDate) = MONTH(NOW());
+
+
+-- Birth year
+SELECT emp.FirstName,emp.LastName,YEAR(emp.DateOfBirth) FROM Employees; 
+  
