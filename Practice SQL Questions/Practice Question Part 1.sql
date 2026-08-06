@@ -483,5 +483,37 @@ SELECT * FROM Employees WHERE MONTH(JoiningDate) = MONTH(NOW());
 
 
 -- Birth year
-SELECT emp.FirstName,emp.LastName,YEAR(emp.DateOfBirth) FROM Employees; 
+SELECT emp.FirstName,emp.LastName,YEAR(emp.DateOfBirth) FROM Employees;
+
+
+-- Delete EmployeeID=10  
+DELETE FROM Employees WHERE EmployeeId = 10;
+
+
+-- Delete salary<20000
+DELETE FROM Employees WHERE Salary < 20000;
+
+
+-- Delete HR employees
+DELETE FROM Employees WHERE Department = 'HR';
+
+
+-- Delete Jaipur employees
+DELETE FROM Employees WHERE City = 'Jaipur';
+
+
+-- Delete age>60
+DELETE FROM Employees WHERE Age > 60;
+
+
+-- Delete duplicate emails
+DELETE FROM Employees WHERE EmployeeId NOT IN
+(
+SELECT EmployeeId FROM 
+(SELECT MIN(EmployeeId) AS EmployeeId FROM Employee GROUP BY Email)
+);
+
+
+-- Delete without manager
+DELETE FROM Employees WHERE ManagerId IS NULL;      
   
