@@ -515,5 +515,23 @@ SELECT EmployeeId FROM
 
 
 -- Delete without manager
-DELETE FROM Employees WHERE ManagerId IS NULL;      
+DELETE FROM Employees WHERE ManagerId IS NULL;  
+
+
+-- Second highest salary
+SELECT MAX(Salary) AS SecondHighestSalary FROM Employees WHERE Salary < (SELECT MAX(Salary) FROM Employees); 
+-- ------------------------------------ya----------------------------------------------------------------------
+SELECT DISTINCT Salary FROM Employees ORDER BY Salary DESC LIMIT 1 OFFSET 1; 
+
+
+-- Third highest salary
+SELECT MAX(Salary) AS ThirdHighestSalary FROM Employees 
+WHERE Salary < (SELECT MAX(Salary) FROM Employees 
+WHERE Salary < (SELECT MAX(Salary) FROM Employees)); 
+-- -----------------------------ya-----------------------------------------------------
+SELECT DISTINCT Salary FROM Employees ORDER BY Salary DESC LIMIT 1 OFFSET 2;
+
+
+-- Nth highest salary for example n = 6 , so n=n-1 ,  n = 6-1 , n=5;
+SELECT DISTINCT Salary FROM Emplpyees ORDER BY Salary DESC LIMIT 1 OFFSET 5;
   
